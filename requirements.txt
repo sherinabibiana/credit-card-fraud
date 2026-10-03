@@ -1,0 +1,47 @@
+# Direct dependencies, pinned to the versions this project was built and tested with.
+#
+# Verified environment (inside WSL2 Ubuntu 24.04):
+#   Python 3.12.3
+#   apache-airflow 3.3.2 | mlflow 3.16.1 | scikit-learn 1.9.1 | pandas 3.0.5
+#   numpy 2.5.3 | scipy 1.18.1 | matplotlib 3.11.2 | pytest 9.1.1
+#
+# Apache Airflow is installed from its official wheel index and, for a fresh
+# environment, with the matching constraints file (see README -> Installation):
+#
+#   pip install -r requirements.txt \
+#     --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-3.3.2/constraints-3.12.txt"
+#
+# Replace "3.12" with your own `python3 -V` minor version.
+
+# --- Orchestration ---------------------------------------------------------
+apache-airflow==3.3.2
+
+# --- Experiment tracking ---------------------------------------------------
+mlflow==3.16.1
+
+# --- Machine learning ------------------------------------------------------
+scikit-learn==1.9.1
+pandas==3.0.5
+numpy==2.5.3
+joblib==1.6.0
+
+# --- Data parsing ----------------------------------------------------------
+# Shipped as a scikit-learn dependency; used directly to read the ARFF mirror.
+scipy==1.18.1
+# Used to read the Parquet mirror and to write MLflow input examples.
+pyarrow==25.0.1
+
+# --- Visualisation ---------------------------------------------------------
+matplotlib==3.11.2
+
+# --- Plumbing --------------------------------------------------------------
+requests==2.34.2
+python-dotenv==1.2.3
+
+# --- Testing ---------------------------------------------------------------
+pytest==9.1.1
+
+# Intentionally NOT included, and why:
+#   imbalanced-learn  -> class_weight="balanced" is used instead of SMOTE
+#                        (see README -> "Why class weights and not SMOTE?")
+#   seaborn          -> matplotlib alone produces every plot in this project

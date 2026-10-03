@@ -1,0 +1,113 @@
+{
+  "passed": true,
+  "n_checks": 11,
+  "n_critical_failures": 0,
+  "n_warnings": 0,
+  "checks": [
+    {
+      "name": "dataset_present",
+      "passed": true,
+      "severity": "critical",
+      "message": "Dataset received with shape (284807, 31).",
+      "details": {
+        "shape": [
+          284807,
+          31
+        ]
+      }
+    },
+    {
+      "name": "dataset_not_empty",
+      "passed": true,
+      "severity": "critical",
+      "message": "Dataset has 284807 rows (>= 1000).",
+      "details": {
+        "n_rows": 284807
+      }
+    },
+    {
+      "name": "target_column_present",
+      "passed": true,
+      "severity": "critical",
+      "message": "Target column 'Class' is present.",
+      "details": {}
+    },
+    {
+      "name": "required_columns_present",
+      "passed": true,
+      "severity": "critical",
+      "message": "All 31 required columns are present.",
+      "details": {}
+    },
+    {
+      "name": "missing_values",
+      "passed": true,
+      "severity": "critical",
+      "message": "No missing values.",
+      "details": {
+        "missing_total": 0,
+        "ratio": 0.0,
+        "per_column": {}
+      }
+    },
+    {
+      "name": "infinite_values",
+      "passed": true,
+      "severity": "critical",
+      "message": "No infinite values found.",
+      "details": {
+        "n_infinite": 0
+      }
+    },
+    {
+      "name": "duplicate_rows",
+      "passed": true,
+      "severity": "warning",
+      "message": "1081 byte-wise duplicate row(s) and 9144 duplicate model input(s) found. prepare_data removes the 9144 repeated model inputs before the split so the same transaction cannot appear in both train and test.",
+      "details": {
+        "n_duplicate_rows_exact": 1081,
+        "n_duplicate_model_inputs": 9144
+      }
+    },
+    {
+      "name": "features_numeric",
+      "passed": true,
+      "severity": "critical",
+      "message": "All 30 feature columns are numeric.",
+      "details": {
+        "n_features": 30
+      }
+    },
+    {
+      "name": "no_target_leakage",
+      "passed": true,
+      "severity": "critical",
+      "message": "Target 'Class' excluded from the 30 features.",
+      "details": {}
+    },
+    {
+      "name": "target_values_valid",
+      "passed": true,
+      "severity": "critical",
+      "message": "Target only contains the expected classes [0, 1].",
+      "details": {
+        "observed": [
+          "0",
+          "1"
+        ]
+      }
+    },
+    {
+      "name": "target_distribution",
+      "passed": true,
+      "severity": "critical",
+      "message": "284315 legitimate (99.8273%) vs 492 fraudulent (0.1727%) - ratio 577.9:1. Accuracy alone is meaningless here; precision/recall/PR-AUC are used instead.",
+      "details": {
+        "n_legitimate": 284315,
+        "n_fraud": 492,
+        "fraud_percentage": 0.172749,
+        "imbalance_ratio": 577.88
+      }
+    }
+  ]
+}
